@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HeaderColor } from '@ionic-native/header-color'; // to change header color
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -37,6 +38,7 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
+    HeaderColor,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

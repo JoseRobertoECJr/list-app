@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { HeaderColor } from '@ionic-native/header-color';
 
 @Component({
   selector: 'page-home',
@@ -12,10 +13,10 @@ export class HomePage {
 	items: any[];
 	itemKey: number;
 
-  constructor(public navCtrl: NavController, private storage: Storage) {
+  constructor(public navCtrl: NavController, private storage: Storage, private headerColor: HeaderColor) {
   	this.items = [];
   	this.itemKey = 0;
-
+    this.headerColor.tint('#488aff');
   }
 
   ionViewDidLoad(){
