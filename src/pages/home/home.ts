@@ -21,26 +21,26 @@ export class HomePage {
   ionViewDidLoad(){
   	this.storage.forEach((item, index) => {
   		this.items.push(item)
-  		this.itemKey++;
+  		if(this.itemKey < item.id){
+        this.itemKey = item.id;
+      }
   	})
   }
 
   addItem(){
     console.log(this.newItemLabel);
-  	this.storage.set(this.itemKey, { id: this.itemKey, label: this.newItemLabel })
+  	this.storage.set(`${++this.itemKey}`, { id: this.itemKey, label: this.newItemLabel })
   	.then(()=> {
   		this.items.push({ id: this.itemKey, label: this.newItemLabel });
-  		this.itemKey++;
   	}).then(() => this.newItemLabel = '');
   }
 
   removeItem(item){
     this.storage.remove(`${item.id}`)
-    .then(() => { 
+    .then(() => {
       var index = this.items.indexOf(item);
       console.log(index);
       this.items.splice(index, 1);
-      this.itemKey--;
       console.log(this.itemKey)
     });
   }
